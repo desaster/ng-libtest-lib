@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build ng-libtest-lib --configuration development",
+    "build:prod": "ng build ng-libtest-lib --configuration production",
+    "pack": "cd dist/ng-libtest-lib && npm pack",
+    "publish": "node publish.js",
     "test": "ng test"
   },
   "private": true,
@@ -23,6 +24,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~12.1.4",
     "@angular/cli": "~12.1.4",
     "@angular/compiler-cli": "~12.1.0",
     "@types/jasmine": "~3.8.0",
@@ -33,6 +35,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^12.1.0",
     "typescript": "~4.3.2"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "@desaster/ng-libtest-lib",
+  "repository": "git://github.com/desaster/ng-libtest-lib.git",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}

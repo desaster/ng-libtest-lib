@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-libtest-lib": {
+      "projectType": "library",
+      "root": "projects/ng-libtest-lib",
+      "sourceRoot": "projects/ng-libtest-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-libtest-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-libtest-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-libtest-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-libtest-lib/src/test.ts",
+            "tsConfig": "projects/ng-libtest-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-libtest-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-libtest-lib"
 }
