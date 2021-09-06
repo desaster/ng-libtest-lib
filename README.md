@@ -22,6 +22,20 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Publish NPM package to Github
+
+https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry
+
+Ensure that:
+* package.json contains `private: true`
+* .npmrc points to the github repository
+* ~/.npmrc contains the github authentication token `npm login --scope=@desaster --registry=https://npm.pkg.github.com`
+```
+npm run build:prod
+npm run pack
+npm run publish
+```
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

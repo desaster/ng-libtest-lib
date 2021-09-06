@@ -12,10 +12,12 @@ const curVer = pkg.version.trim().split(/[.-]/).slice(0, 3).join('.');
 const commit = cp.execSync('git rev-parse --short HEAD', {encoding: 'utf-8'}).trim();
 console.log(`Package: ${pkg.name}, version: ${curVer}, commit: ${commit}`);
 
-// generate a new unique semver-compliant version based the commit it and current time
-const uniqueVer = `${curVer}-alpha-${commit}-${Math.random().toFixed(8).substr(2)}.${Date.now()}`;
+// 0.0.1-20210906.ebaf822d
+const dateString = (new Date).toISOString('en-US')
+  .substring(0, 10)
+  .replace(/-/g, '');
+const uniqueVer = `${curVer}-${dateString}.g${commit}`;
 
-// const uniqueVer = `${curVer}-alpha-${commit}`;
 process.chdir('./dist/ng-libtest-lib');
 
 // use npm version to update package.json
